@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block titulo %}Contacto{% endblock titulo %}
+
+
+    <!--------------------------------------------------------------------->
+      <!----------------------------------------------1----------------------->
+      <div class="main">
+        <!---------GRID COLUM 1/2-->
+      <div class="main-primero"> 1</div>
+
+      {% block content %}
+        <!---GRID 2/10.COLUMN.........-->
+        <div class="articulo"> 
+
+
+
+        <!------------------------------------------------A--------------->
+        <div class="container-contacto">
+
+
+          <h1>
+            {% trans 'BUZÓN DE SUGERENCIAS Y CONSULTAS' %}
+            						
+						
+          </h1>
+
+          <p>{% blocktrans trimmed %}
+            Si tienes alguna duda o deseas contactar con nosotros no dudes en escribirnos.					
+            Estamos encantados de poder ayudarte.				
+            {% endblocktrans %}
+          </p>
+            <!-- FORMULARIO-->
+ 
+      <div class="row-formulario">   <!-- tabla -->
+        <!-- tabla -->
+          <div class="bg-faded">   <!-- tabla -->
+          
+                  <div class="section-heading">
+                   <span class="section-heading-upper">
+                     {% trans 'Envíanos tus dudas' %}
+                    </span>
+                  <span class="section-heading-lower">
+                    <u>  {% trans 'contacto' %}</u>
+                  </span>
+                  </div>
+                     <!-- Formulario de contacto -->
+            
+                {% if 'ok' in request.GET %}
+                <p>
+                  <b>{% blocktrans trimmed %}
+                    Su mensaje se ha enviado correctamente, en breve nos pondremos en contacto con usted.
+                    {% endblocktrans %}
+                  </b>
+                </p>
+                {% endif %}  
+
+                <!-- FORM ACTION INICIO
+               <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+             {{form.as_table}}
+             </table>
+
+
+   <div class="text-center"><input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
+             </div>
+               </form>    -->
+  
+            <form action="" method="POST">{% csrf_token %}
+                  <div class="form-group">
+                       <label>{% trans 'Nombre' %} *</label>
+                       <div class="input-group">
+                       {{form.name}}
+                       </div>
+                       {{form.name.errors}}
+                       </div>
+
+
+                       <div class="form-group">
+                        <label>{% trans 'Email' %} *</label>
+                        <div class="input-group">
+                        {{form.email}}
+                        </div> 
+                        {{form.email.errors}}
+                        </div>
+
+
+                        <div class="form-group">
+                        <label>{% trans 'Mensaje' %} *</label>
+                         <div class="input-group">
+                         {{form.content}}
+                         </div> 
+                         {{form.content.errors}}
+                         </div>
+
+                         <div class="text-center">
+                          <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
+                        </div>
+             </form>
+          <!-- FORM ACTION FINAL -->
+            <!-- Fin formulario de contacto -->
+      
+
+
+          </div>
+       
+      </div>
+  
+ 
+    <!-- Fin TOTAL formulario de contacto -->
+    </div>
+    <!-------------------------------------A---------
+    -->
+
+
+
+        </div>
+         <!---FIN DIV-ARTICULO-GRID 2/10.COLUMN.........-->
+         {% endblock content %}
+
+
+         </div>
+         <!---FIN DIV MAIN----------------------1-->

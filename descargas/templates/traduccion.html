@@ -1,0 +1,71 @@
+{% get_current_language as LANGUAGE_CODE %}
+<H1>{{LANGUAGE_CODE}}</H1>
+<form action="{% url 'set_language' %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{redirect_to}}">
+  <select name="language" id="">
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as Languages %}
+    {% for Language in Languages %}
+    <option value="{{language.code}}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+      {{Language.name_Local}} {{Language.code}}
+    </option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Go">
+</form>
+
+<!------------------------------------------------------------>
+
+{% get_language_info_list for LANGUAGES as languages %}
+{% if LANGUAGE_CODE == languages.0.code %}
+    <form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <div class="lang-btn">
+        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <input name="language" type="hidden" value="{{ languages.1.code }}" />
+        <button type="submit"><img width="30" src="{% static 'united-kingdom.png' %}" alt=""></button>
+        </div>
+        </form>
+{% else %}
+    <form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+        <div class="lang-btn">
+            <input name="next" type="hidden" value="{{ redirect_to }}" />
+            <input name="language" type="hidden" value="{{ languages.0.code }}" />
+            <button type="submit"><img width="30" src="{% static 'turkey.png' %}" alt=""></button>
+        </div>
+    </form>
+{% endif %}
+
+
+
+<!-------------------------------------------------->
+{% load i18n %} {#1#}
+<form action="{% url 'set_language' %}" method="post">  {#2#}
+    {% csrf_token %}  {#3#}
+    <select name="language">  {#4#}
+        {% get_current_language as LANGUAGE_CODE %}  {#5#}
+        {% get_available_languages as LANGUAGES %}  {#6#}
+        {% get_language_info_list for LANGUAGES as languages %}  {#7#}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>  {#8#}
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Switch">  {#9#}
+</form>
+{% translate "I am localized inside the template." %}  {#10#}
+
+
+<!---------------------------------------------------->
+
+{% load cms_tags i18n %}
+{% for language in languages %}
+<a href="{% page_language_url language.0 %}"{% ifequal lang language.0 %} class="current"{% endifequal %}>
+<img src="{{ MEDIA_URL }}[path to your flags images]{{ language.0 }}.gif" /></a>
+{% endfor %}
+
+
+<!---------------------------------------------->

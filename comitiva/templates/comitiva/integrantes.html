@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block titulo %}Ugt Valles{% endblock titulo %}
+
+
+
+
+    <!--------------------------------------------------------------------->
+      <!--------------------------------------------------------------------->
+      <div class="main">
+        <!---------GRID COLUM 1/2-->
+      <div class="main-primero"> 1</div>
+
+      {% block content %}
+        <!---GRID 2/10.COLUMN.........-->
+        <div class="articulo"> 
+<!--------------------------------------------------------------------->
+<div class="container-comitiva">
+  <h1> {% trans 'Quienes Somos' %}</h1>
+
+
+ 
+
+    <!------------------------>
+  <div class="manager">
+
+  {% for manager in managers %}
+  <div class="manager-foto">
+    <img src="{{ manager.photo.url}}" alt="Image" class="cover-img">
+  </div>
+  <div class="manager-descripcion">
+  <h2>{{ manager.name }}</h2>
+  <h3>{{ manager.cargo }}</h3>
+  <p>{{ manager.area }}</p>
+  <p>{{ manager.turno }}</p>
+</div>
+  {% endfor %}
+  </div>
+   <!-------------------------->
+
+
+
+  <!---CONTAINER DE INTEGRANTES------>
+   <div class="integrantes">
+  
+    <!----ROW INTEGRANTE------------------A-->
+   <div class="row-integrante">
+    {% for group in integrantes %}
+  
+    <!----------------------B--------->
+    <div class="integrante">
+    
+      <div class="integrante-foto">
+      <img src="{{ group.photo.url}}" alt="Image" class="cover-img">
+      </div>
+
+      <div class="integrante-descripcion">
+      <h2>{{ group.name }}</h2>
+      <h3>{{ group.cargo }}</h3>
+      <p>{{ group.area }}</p>
+      <p>{{ group.turno }}</p>
+      </div>
+
+   </div>
+   <!----------------FIN ------INTEGRANTE-----------B--------------->
+
+
+  {% if forloop.counter|divisibleby:"2" %}
+   </div>
+  <!---FIN DIV  ROW-INTEGRANTE--------------------A----->
+ 
+
+   <div class="row-integrante">
+    {% if forloop.last or forloop.counter|divisibleby:"2" %}
+    {% endif %}
+    {% endif %}
+    {% empty %}
+    <p>No hay </p>
+   {% endfor %}  
+
+   </div>
+
+  
+
+</div>
+  <!----FIN 1---------------------->
+
+
+
+
+
+
+  </div>
+    <!--------------------------------------------------------------------->
+   
+ 
+   
+
+ 
+
+
+
+     </div>
+    {% endblock content %}
+    <!---DIV DEL ARTICULO----------------->
+
+</div>
+
+
+   <!--FIN DIV DEL MAIN------->
+         

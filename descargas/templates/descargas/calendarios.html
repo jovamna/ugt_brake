@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block titulo %}Calendarios{% endblock titulo %}
+
+
+
+
+    <!--------------------------------------------------------------------->
+      <!--------------------------------------------------------------------->
+      <div class="main">
+        <!---------GRID COLUM 1/2-->
+      <div class="main-primero"> 1</div>
+
+      {% block content %}
+        <!---GRID 2/10.COLUMN.........-->
+        <div class="articulo"> 
+<!--------------------------------------------------------------------->
+<div class="container-reuniones">
+  <h1> {% trans 'Calendarios' %}</h1>
+
+
+  <div class="reuniones-resumen">
+  {% for calendario in calendarios %}
+  <div class="reuniones-uno">
+  <h2>{{ calendario.title }}</h2>
+  <h3><em>{{ calendario.published }}</em></h3>
+  <p>{{ calendario.description }}</p>
+  <a href="{{ calendario.download.url }}">{% trans 'VISUALIZAR' %}</a>
+ <em><strong><a href="{{ calendario.download.url }}" download>{% trans 'Descargar' %}</a></strong> </em>
+</div>
+  {% endfor %}
+  </div>
+</div>
+  <!--------------------------------------------------------------------->
+ 
+   
+
+ 
+
+
+
+     </div>
+    {% endblock content %}
+    <!---DIV DEL ARTICULO----------------->
+
+</div>
+
+
+   <!--FIN DIV DEL MAIN------->
+         

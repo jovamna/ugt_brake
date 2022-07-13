@@ -1,0 +1,593 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+        <meta charset="utf-8">
+
+           <meta charset="utf-8">
+        <!---<meta name="viewport" content="width=device-width, initial-scale=1">--->
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+      <!-----------FONTAWASOME-------------------->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"/>
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-------materiale para tarducir-->
+
+ 
+<!---------fin materialez------------>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- SCRIPT PARA EL MENU RESPONSIVE A VER SI FUNCIONA SI NO BORRARLO SIRVE PARA EL CARROUSEL-->
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+
+
+    <!-- MENU PARA DESPLAZAR LAS OPCIONES DEL MENU-->
+    <script src="{% static 'js/menuResponsive.js' %}"></script>
+    <script src="{% static 'js/menuAspaArticulo.js' %}"></script>
+    <script src="{% static 'js/aspa.js' %}"></script>
+
+
+
+            </head>
+
+   
+
+
+ 
+  
+
+
+
+
+    <div id ="container">
+    <!------------------------------------------->
+
+
+
+
+    <div class="header">
+          <div class="a"> </div>
+
+          <div class="b"> </div>
+
+          <div class="c"></div>
+       
+           <div class="d"></div>
+     
+
+          <div class= "e"></div>
+
+           <div class="f"></div>
+      
+
+           <div class="g"></div>
+          
+           <div class="h"></div>
+
+           <div class="i">	</div>
+
+           <div class="j"></div>
+
+           <div class= "k"></div>
+
+           <div class="l"></div>
+
+     
+    <!--------------------------------------------------------------------->
+
+ 
+
+     <!----SECCION LOGO--------------------->
+      <!----------------------------->
+      <div class="menu-btn"> 
+
+        <div class="navbar">
+            <div class="container nav-container">
+                     <input class="checkbox" type="checkbox" name="" id="" />
+                      <div class="hamburger-lines">
+                      <span class="line line1"></span>
+                      <span class="line line2"></span>
+                      <span class="line line3"></span>
+                      </div>  
+                  
+                    <div class="menu-items">
+                    <ul>
+                    <li>  <a href="{% url 'home' %}">{% trans 'Inicio' %}</a></li>
+                    <li>  <a href="{% url 'comitiva:quienes-somos' %}">{% trans 'Quienes Somos' %} </a></li>
+                    <li>  <a href="{% url 'contacto:contacto' %}">{% trans 'Buzón' %} </a></li>
+                   </ul>
+                   </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+            
+            <!----------------------->
+       
+            <div class="logo-ugt"> 
+            <img src="{% static 'img/Logo_ugt_bs.jpg' %}">
+            </div>
+            <!---------------------->
+
+            <!------------------------------>
+            <!------------------------------>
+
+            <!----------------------------->
+            <div class="telefono">
+              <!----------------IDIOMAS---------------->
+            <div class="idiomas">
+              <form action="{% url 'set_language' %}" method="post"  class="form">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language" class="seleccion">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+               
+                    {% for language in languages %}
+                        
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                      {{ language.name_local }} ({{ language.code }}) 
+  
+                    </option>
+  
+  
+            
+                    {% endfor %}
+             
+                </select>
+                <input type="submit"  class="submit" value="Ir">
+            
+               <!----- <input type="image" name="submit" src="{% static 'img/iconos/meca.png' %}" border="0" alt="Submit" style="width: 30px;" />--->
+            </form>
+  
+          </div>
+         <!----IDIOMAS------------------->
+       
+            </div>
+            <!------------------------------>
+
+
+
+
+
+
+
+
+            <!----------------------->
+            <div class="logo-empresa"> 
+            <img src="{% static 'img/250-117-logo.jpg' %}">
+            </div>
+            <!---------------------->
+       
+            <!------------------------------------>
+    
+            <!------------------------------------->
+
+           <!-----set_languaje viene de la url principal   path('i18n/', include("django.conf.urls.i18n")),------------------------------->
+          <div class="ultimo">
+            
+
+          </div>
+          
+          <!------FIN LOGO------------------------------>
+
+         
+      
+
+
+
+
+
+
+   <!--------NAV----------------------------->
+        <div class="sub-uno"></div>
+     
+      <div class="nav">
+         <!---------MENU----------------------------------->
+         <nav>
+                <ul class ="nav-menu">
+                <li> 
+                <a href="{% url 'home' %}">{% trans 'Inicio' %}</a>      
+                </li>
+
+                <li > 
+                <a href="{% url 'comitiva:quienes-somos' %}">
+               
+                {% trans ' Quienes Somos' %}
+                 </a>
+                 </li>
+
+                
+                
+                
+                 <li> 
+                  <a href="{% url 'contacto:contacto' %}">
+                 {% trans 'Buzón' %}
+                 </a> 
+                </li>  
+               </ul>
+              </nav>
+              <!-------------------------------------------------------->
+      </div>
+       <div class="sub-tres">   </div>
+     <!----------------------FIN NAV--------------->
+
+
+    </div>
+  <!----------------------FIN HEADER-------------->
+
+       <!-----------------PORTADA--------------------------------------------->
+
+       <div class="portada">   
+          <!-------------------------------------------->
+          <div class="uno"></div>
+
+          <div class="image">
+          <img src="{% static 'img/iconos/portada.jpg' %}"  width="100%" >
+          </div>
+
+          <div class="dos"> </div>
+        <!------------------------------------------------------->
+
+
+       </div>
+    <!---------------------------------------------------------------------->
+       
+   
+    <!--------GRID PRINCIPAL DEL CONTENIDO CENTRAL------>
+    <div class="main">
+        <!---------GRID COLUM 1/2-->
+        <div class="main-primero"></div>
+ 
+        {% block content %}
+         <!---GRID 2/10.COLUMN.........-->
+          <div class="articulo"> 
+
+            <div class="container-reuniones">
+              </div>
+
+     {% block primer-segmento %}
+    <div class="primer-segmento">
+           
+           <!-------REUNIONES -->
+           <div class ="reuniones">
+              <!----------------------------->
+              <div class="descarga-reuniones">
+              <h1> {% trans 'Resumén de Reuniones del Comité' %}</h1>
+          
+             
+              </div>
+              <!--------------------------------->
+            
+              </div>
+             <!------FIN REUNIONES--------->
+
+
+
+
+
+
+
+             <!-----CALENDARIOS------------>
+             <div class ="calendarios">
+             <div class="descarga-calendarios">
+             <h1>{% trans 'Calendarios' %}</h1>
+           
+             <div class="calendario-image">
+          
+             </div>
+         
+             </div>
+                       <style>
+                        .cover-img {
+                        height: 100px;
+                        }
+                        </style>
+              </div>
+              <!---FIN CALENDARIO---------------------------->
+
+
+
+    </div>
+    <!---------------------FIN PRIMER SEGMENTO ROW-------------->
+     {% endblock primer-segmento %}
+
+
+
+
+
+
+
+
+            
+ <!-------SEGUNDO SEGMENTO----ROW--------->
+  <div class="segundo-segmento">
+
+
+        <!------------------------------->
+        <div class="permisos">
+           <div class="descarga-permisos"> 
+           <h1>{% trans 'Permisos Retribuidos' %} </h1> 
+           <div class="permiso-image">
+         
+           </div>
+        
+           </div>
+
+           <style>
+           .cover-img {
+           height: 100px;
+           }
+           </style>
+        </div>
+        <!----------------------------------->
+
+
+
+      <!----------------------------------->
+      <div class ="prevencion">
+        
+          <h1>{% trans 'Seguridad y Salud ' %}</h1>
+         
+          <h1>{% trans 'Prevención y Medio Ambiente ' %}</h1>
+        
+          </div>
+        <!---------------------------------->
+
+
+    </div>
+    <!------FIN SEGUNDO SEGMENTO ROW-------------------------->
+
+
+
+
+      <!---TERCER SEGMENTO UNICO BLOQUE--CONVENIO PROVINCIAL------------------------>
+      <div class="tercer-segmento">
+        <div class="descarga-convenio">
+        <h1>{% trans 'Convenio Provincial Barcelona' %}</h1>
+     
+      </div>
+    </div>
+    <!--------------------------------------------------------->
+            
+
+
+
+        {% block cuarto-segmento %} 
+         <div class= "cuarto-segmento">
+         <h1>{% trans ' Afiliate a UGT' %}</h1>
+         <p>{% trans 'Qué ventajas supone afiliarse a UGT?' %} </p>
+
+          <!--------------------------------->
+         <div class="primer-cuarto">
+         <h1>{% trans 'INFORMACIÓN Y ASESORAMIENTO PERMANENTE' %}</h1>
+
+         <p>{% trans 'Contratación, salarios, vacaciones, prevención de riesgos laborales, nóminas, jornadas, convenios colectivos, 
+          liquidaciones, finiquitos, jubilaciones, pensiones, Seguridad Social, expedientes de regulación, despidos, etc..' %}
+         </p>
+        </div>
+         <!-------------------------->
+
+
+              <!---------------R-->
+              <div class="row">
+              <!-----------------1--->
+              <div class="row1">
+              <h1>{% trans 'GABINETES JURÍDICOS ESPECIALIZADOS' %}</h1>
+              <p>{% trans 'Abogados/as laboralistas, etc..' %}</p>
+              </div>
+              <!-------------------1--->
+              <!-------------------2-->
+              <div class="row2">
+              <h1>{% trans '¡¡AFILIATE!!' %}</h1>
+              </div>
+              <!----------------2-->
+               </div>
+               <!--------------R--->
+
+
+
+              
+              <!------------------->
+              <div class="encolumn">
+               <h1>{% trans 'FORMACIÓN CONTÍNUA' %}</h1>
+               <p>
+                {% trans ' Adaptada a los puestos de trabajo, sindical específica a los delegados/as de personal, 
+                miembros de comités y delegados/as de Salud Laboral.' %}
+              
+               </p>
+               </div>
+               <!------------------>
+
+
+
+
+               </div>
+               <!---FIN DIV CUARTO SEGMENTO-->
+               {% endblock cuarto-segmento %} 
+
+
+   <!------------------------------------------------------------>
+
+
+
+
+             
+         
+        </div>
+        {% endblock content %}
+
+
+
+
+        {% block cooki %}
+        <!------------------COOKIES------------------------------------------->
+        <div class="popup-overlay">
+     <div class="popup">
+     <p>Utilizamos cookies propias y de terceros para mejorar servcios.
+     Mas informacion en Politicas de Cookies.</p>
+     <a class="termino" style="color:#115cfa;" href="{% url 'politica-cookies' %}">Politicas de Cookies</a>
+     
+     <a href="javascript:;" class="submit">Aceptar</a> 
+     <a href="javascript:;" class="close">Cerrar</a>
+     </div>
+     </div>
+     
+     {% endblock cooki  %}
+     
+     <!----------------------------------------------------->
+      <!------------------COOKIES------------------------------------------->
+     
+
+        </div>
+
+   <!-----------------FIN PRIMERA COLUMNA--------------------------------------->
+  
+
+
+
+
+
+
+
+    <div class="aside">
+      <div class="contenido-aside">
+          <div class="aside-colum">
+
+
+               <!------------------->
+               <div class="ugt-row">
+                <div class="ugt-image">
+                  <img src="{% static 'img/iconos/ugtfica.jpg' %}" alt="Image" class="">
+                </div>
+                <div class="ugt-titulo">
+               <h1><a href="https://www.ugt.es/">
+                UGT</a></h1>
+              </div>
+               </div>
+              <!------------------->
+
+
+
+
+              <!------------------->
+          
+                <div class="formacion-row">
+                  <div class="formacion-image">
+                    <img src="{% static 'img/iconos/formacion.png' %}" alt="Image" class="">
+                  </div>
+                  <div class="formacion-titulo">
+               <h1>
+                 <a href="{% url 'formacion:formacion' %}">{% trans 'Formación' %}</a>
+                </h1>
+              </div>
+               </div>
+              <!------------------------>
+
+              <!------------------------>
+              <div class="descuentos-row">
+                <div class="descuentos-image">
+                  <img src="{% static 'img/iconos/descuentos.png' %}" alt="Image" class="">
+                </div>
+
+                <div class="descuentos-titulo">
+                <h1>  <a href="http://www.ugt.cat/descomptes/">
+              {% trans 'Descuentos y Servicios' %} 
+              </a></h1>
+             </div>
+
+              </div>
+              <!------------------------->
+
+          </div>
+        </div>
+
+          <div class="ultimo-aside"></div>
+    </div>
+    <!--------------------------------------------------------------------->
+
+
+
+
+
+    <!-------------------------------------------------------------->
+   
+
+
+      <div class="footer">
+
+
+      <div class="primer-footer">
+      </div>
+       <!------------------------->
+      <div class="segundo-footer">
+           <div class="footer-row">
+               <!------------------------->
+               <div class="logo-footer"> 
+                <img src="{% static 'img/250-117-logo-ugt.png' %}">
+               </div>
+               <!--------------------------->
+               <!-------------------------->
+               <div class="links"> 
+               <ul>
+               <li>
+               <p><a href="{% url 'home' %}">{% trans 'Inicio' %}</a></p>
+               </li>
+               <li>
+               <p><a href="{% url 'comitiva:quienes-somos' %}">{% trans 'Quienes Somos' %}</a></p>
+               </li>
+               <li>
+              <p><a href="{% url 'contacto:contacto' %}">{% trans 'Bústia' %}</a> </p>
+               </li>
+               </ul>
+               </div>
+              <!-------------------------->
+        </div>
+      </div>
+       <!------------------------->
+       <div class="tercero-footer">
+      </div>
+
+
+     </div>
+    
+
+            <!-- PARA CONVERTIR EL MENU A ASPA-->
+            <script src="{% static 'js/menuAspaArticulo.js' %}"></script>
+
+            <!-- MENU PARA DESPLAZAR LAS OPCIONES DEL MENU-->
+            <script src="{% static 'js/menuDeslizaArticulo.js' %}"></script>
+
+
+            <script src="{% static 'js/cookies.js' %}"></script>
+    <!---DIN DE ID CONTAINER------------------------------->
+    </div>
+
+   </html>
+
+
+
+
+
+
+             

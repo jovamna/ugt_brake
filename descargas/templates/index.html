@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block titulo %}Ugt Valles{% endblock titulo %}
+
+
+
+
+    <!--------------------------------------------------------------------->
+      <!--------------------------------------------------------------------->
+      <div class="main">
+          <!---------GRID COLUM 1/2-->
+        <div class="main-primero"> 1</div>
+
+        {% block content %}
+          <!---GRID 2/10.COLUMN.........-->
+          <div class="articulo"> 
+            <div class="primer-segmento">
+
+        <!-------REUNIONES -->
+        <div class ="reuniones">
+   
+        <div class="descarga-reuniones">
+          <h1> <a href="{% url 'descargas:reuniones' %}">
+            {% trans 'Resumén de Reuniones del Comité' %}</a>
+          </h1>
+
+            <div class="reunion-image">
+              <img src="{% static 'img/iconos/reunion.png' %}" alt="Image" class="">
+           </div>
+            
+        </div>
+
+            
+          
+      </div>
+      <!------FIN REUNIONES--------->
+
+      <!-----CALENDARIOS------------>
+      <div class ="calendarios">
+
+           <div class="descarga-calendarios">
+             <h1> <a href="{% url 'descargas:calendario' %}"> {% trans 'Calendarios' %}</a></h1>
+   
+             <div class="calendario-image">
+             <img src="{% static 'img/iconos/calendario.gif' %}" alt="Image" class="cover-img">
+            </div>
+
+          </div>
+                       
+      </div>
+      <!---FIN CALENDARIO---------------------------->
+    </div>
+    <!---------------------FIN PRIMER SEGMENTO ROW-------------->
+
+            
+ <!-------SEGUNDO SEGMENTO----ROW--------->
+  <div class="segundo-segmento">
+    <!------------------------------->
+    <div class="permisos">
+    
+        <div class="descarga-permisos"> 
+          <h1> <a href="{% url 'descargas:permisos' %}">
+          {% trans 'Permisos Retribuidos' %}</a>
+          </h1>
+     
+          <div class="permiso-image">
+          <img src="{% static 'img/iconos/permiso.png' %}" alt="Image" class="">
+          </div>
+        </div>
+
+         
+      </div>
+      <!----------------------------------->
+      <!----------------------------------->
+      <div class ="prevencion">
+
+        <div class="descarga-permisos"> 
+       
+            <h1> <a href="{% url 'descargas:prevencion' %}"> 
+            {% trans 'Seguridad y Salud ' %}
+
+            {% trans 'Prevención y Medio Ambiente ' %}
+            </a>
+            </h1>
+
+            <div class="prevencion-image">
+            <img src="{% static 'img/iconos/seguridad.png' %}" alt="Image" class="cover-img">
+            </div>
+         
+          </div>
+          </div>
+        <!---------------------------------->
+    </div>
+    <!------FIN SEGUNDO SEGMENTO ROW-------------------------->
+
+    <!---TERCER SEGMENTO UNICO BLOQUE--CONVENIO PROVINCIAL------------------------>
+    <div class="tercer-segmento">
+      <div class="descarga-convenio">
+    
+     
+        <div class="convenio-image">
+          <img src="{% static 'img/iconos/meca.png' %}" alt="Image" class="">
+          </div>
+       
+          <div class="convenio-titulo">
+          <h1><a href="{% url 'descargas:convenio' %}"> 
+            {% trans 'Convenio Provincial Barcelona' %}
+            </a>
+          </h1>
+      
+        </div>
+   
+
+      </div>
+    </div>
+    <!--------------------------------------------------------->
+            
+
+    <div class= "cuarto-segmento">
+    <h1>{% trans ' Afiliate a UGT' %}</h1>
+    <h2>{% trans 'Qué ventajas supone afiliarse a UGT?' %} </h2>
+        <div class="primer-cuarto">
+        <h1>{% trans 'INFORMACIÓN Y ASESORAMIENTO PERMANENTE' %}</h1>
+
+        <p> {% blocktrans trimmed %}
+         'Contratación, salarios, vacaciones, prevención de riesgos laborales, nóminas, jornadas, convenios colectivos, 
+          liquidaciones, finiquitos, jubilaciones, pensiones, Seguridad Social, expedientes de regulación, despidos, etc..'
+          {% endblocktrans %}
+        </p>
+        </div>
+        <!---------------R-->
+          <div class="row">
+          <!-----------------1--->
+          <div class="row1">
+          <h1>{% trans 'GABINETES JURÍDICOS ESPECIALIZADOS' %}</h1>
+          <p>{% trans 'Abogados/as laboralistas, etc..' %}</p>
+          </div>
+          <!-------------------1--->
+          <!-------------------2-->
+              <div class="row2">
+              <h1>{% trans '¡¡AFILIATE!!' %}</h1>
+              </div>
+              <!----------------2-->
+               </div>
+               <!--------------R--->
+              
+              <!------------------->
+              <div class="encolumn">
+               <h1>{% trans 'FORMACIÓN CONTÍNUA' %}</h1>
+               <p>
+                {% blocktrans trimmed %}
+             Adaptada a los puestos de trabajo, sindical específica a los delegados/as de personal, 
+                miembros de comités y delegados/as de Salud Laboral.
+                {% endblocktrans %}
+               </p>
+               </div>
+               <!------------------>
+
+               </div>
+
+            
+        </div>
+
+        {% endblock content %}
+
+        </div>
+
+ 
+
+
+       
+             
