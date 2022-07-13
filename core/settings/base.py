@@ -13,9 +13,6 @@ settings.configure(
 
 
 
-
-
-
 env = environ.Env(
     DEBUG=(bool, False)
 )
@@ -31,14 +28,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,11 +64,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
-        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        #'DIRS': [
-    #'C:/Users/jjmed/OneDrive/Escritorio/Proyectos/ugt_brake/templates'
-                   #],
-                   
+        #'DIRS': [os.path.join(BASE_DIR, 'templates')],                
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,26 +130,11 @@ LOCALE_PATHS = (
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-#STATICFILES_DIRS = (os.path.join( 'ugt_brake/static/'),)
-#STATICFILES_DIRS = [BASE_DIR / 'static',]
-
-#STATIC_ROOT = 'C:/Users/jjmed/OneDrive/Escritorio/Proyectos/ugt_brake/static'
 
 
 
-
-
-
-#STATIC_URL = '/static/'
-#descargar archivos
-#MEDIA_URL = '/media/'
-#STATICFILES_DIRS= [
-    #'C:/Users/jjmed/OneDrive/Escritorio/Proyectos/ugt_brake/static',
-                   #]
-#MEDIA_ROOT = 'C:/Users/jjmed/OneDrive/Escritorio/Proyectos/ugt_brake/media',
 
 
 

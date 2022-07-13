@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core.mail import EmailMessage
 from .forms import ContactForm
-from core.settings import EMAIL_HOST_USER
+from core.settings.production import EMAIL_HOST_USER
 
 
 
